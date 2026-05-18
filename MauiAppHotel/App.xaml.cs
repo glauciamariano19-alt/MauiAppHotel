@@ -7,7 +7,7 @@ namespace MauiAppHotel
         public App()
         {
             InitializeComponent();
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new Views.ContratacaoHospedagem());
         }
 
         protected override Window CreateWindow(IActivationState? activationState)

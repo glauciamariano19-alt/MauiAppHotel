@@ -2,11 +2,59 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppHotel.Views.HospedagemContratada"
-             Title="HospedagemContratada">
-    <VerticalStackLayout>
+             Title="HospedagemContratada"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#F0F4F8">
+
+    <VerticalStackLayout VerticalOptions="Center"
+                         Padding="10">
+
         <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+           Text="{Binding Descricao}"
+           FontFamily="Romanesco"
+           FontSize="70"
+           TextColor="{StaticResource SecondaryDarkText}"
+           HorizontalOptions="Center"/>
+
+        <Border Margin="10">
+            <HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="Valor Adultos:   " />
+                    <Label Text="{Binding QuantidadeAdulto}"
+                           TextColor="{StaticResource SecondaryDarkText}" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout>
+                    <Label Text="Crianças:   " />
+                    <Label Text= "{Binding QuantidadeCrainca}"
+                           TextColor="{StaticResource SecondaryDarkText}" />
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+        </Border> 
+        
+        <Border Margin="10">
+          <Grid ColumnDefinitions="*, *, *"
+                  RowDefinitions="Auto, Auto">
+                <Label Grid.Row="0" Grid.Column="0" Text="Check-in: " />
+                <Label Grid.Row="0" Grid.Column="1" Text="Check-out: " />
+                <Label Grid.Row="0" Grid.Column="2" Text="Estadia (dias): " />
+
+                <Label Grid.Row="1" Grid.Column="0" Text="{Binding Checkin}" />
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Checkout}" />
+                <Label Grid.Row="1" Grid.Column="2" Text="{Binding Dias}" />
+            </Grid>
+        </Border>
+
+        <Border Margin="10">
+            <HorizontalStackLayout>
+                <Label Text="Valor Total: "/>
+                <Label Text="{Binding ValorTotal}" />
+            </HorizontalStackLayout>                 
+        </Border>
+
+        <Button Text="Voltar" 
+                HorizontalOptions="Center"
+                Clicked="Button_Clicked" />
+
     </VerticalStackLayout>
 </ContentPage>

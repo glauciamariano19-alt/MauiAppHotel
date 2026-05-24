@@ -4,18 +4,18 @@
              x:Class="MauiAppHotel.Views.ContratacaoHospedagem"
              Title="ContratacaoHospedagem"
              NavigationPage.HasNavigationBar="False"
-             BackgroundColor="#F0F4F8">
+             BackgroundColor="#FAFAFA">
     
-    <VerticalStackLayout VerticalOptions="CenterAndExpand"
+    <VerticalStackLayout VerticalOptions="Center"
                          Padding="10">
         <Label 
-            Text="Cálculo da diária!"
+            Text="Cálculo da diária"
             FontFamily="Romanesco"
-            FontSize="50"
-            TextColor="{StaticResource SecondaryDarkText}"
+            FontSize="80"
+            TextColor="#0D47A1"
             HorizontalOptions="Center"/>
 
-        <Border Stroke="{StaticResource PrimaryDark}"
+        <Border Stroke="#0D47A1"
                 StrokeThickness="1" 
                 Padding="10"
                 Margin="10">
@@ -29,7 +29,7 @@
                            Text="Adultos:" />
 
                     <Label Grid.Row="0" Grid.Column="1"
-                           TextColor="{StaticResource PrimaryDark}"
+                           TextColor="#0D47A1"
                            Text="{Binding Value}" 
                            BindingContext="{x:Reference stp_adultos}"/>
 
@@ -43,7 +43,7 @@
                            Text="Crianças:" />
 
                     <Label Grid.Row="1" Grid.Column="1"
-                           TextColor="{StaticResource PrimaryDark}"
+                           TextColor="#0D47A1"
                            Text="{Binding Value}" 
                            BindingContext="{x:Reference stp_criancas}"/>
 
@@ -54,24 +54,32 @@
                              Increment="1" />
                 </Grid>
 
-                <Label Text="Escolha sua Suíte"/>
+                <Label Text="Escolha sua Suíte"
+                       HorizontalOptions="Center"
+                       TextColor="#0D47A1"
+                       FontSize="20"/>
 
                 <Picker x:Name="pck_quarto"
-                        Title="Selecione a sua Acomodação"/>
+                        Title="Selecione a sua Acomodação"
+                        ItemDisplayBinding="{Binding Descricao}"/>
             </VerticalStackLayout>
         </Border>
 
-        <Border Stroke="{StaticResource PrimaryDark}" 
+        <Border Stroke="#0D47A1" 
                 StrokeThickness="1" 
                 Padding="10" 
                 Margin="10">
 
             <VerticalStackLayout>
-                <Label Text="Período da Estadia" />
+                <Label Text="Período da Estadia"
+                       HorizontalOptions="Center"
+                       TextColor="#0D47A1"
+                       FontSize="20"/>
                 <HorizontalStackLayout>
                     <Label Text="Check-in"/>
                     <DatePicker x:Name="dtpck_checkin"
-                    Format="dd/MM/yyyy"/>
+                                DateSelected="dtpck_checkin_DateSelected"
+                                Format="dd/MM/yyyy"/>
                 </HorizontalStackLayout>
 
                 <HorizontalStackLayout>
